@@ -12,7 +12,7 @@ class CreateGameController {
     const {name, description, developer} = req.body
 
     if(!name || !description || !developer){
-      res.status(400).json({status: 400, message: 'All fields are required!'})
+      return res.status(400).json({status: 400, message: 'All fields are required!'})
     }
 
     const game: GameData = {
