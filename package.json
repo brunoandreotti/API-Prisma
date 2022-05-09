@@ -1,0 +1,37 @@
+{
+  "name": "api-prisma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only ./src/app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunoandreotti/API-Prisma.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunoandreotti/API-Prisma/issues"
+  },
+  "homepage": "https://github.com/brunoandreotti/API-Prisma#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.31",
+    "cz-conventional-changelog": "^3.3.0",
+    "prisma": "^3.13.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.13.0",
+    "express": "^4.18.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
