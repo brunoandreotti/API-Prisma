@@ -1,6 +1,4 @@
-/**
- * @jest-environment ./prisma/prisma-enviroment-test.js
- */
+
 
 import { GameInMemoryRepository } from '../../../src/repositories/game/GameInMemoryRepository'
 import { GameData } from '../../../src/repositories/game/IGameRepository'
@@ -9,7 +7,7 @@ import { CreateGameService } from '../../../src/services/game/createGameService'
 let createGameService: CreateGameService
 let gameInMemoryRepository: GameInMemoryRepository
 
-describe('Create Game', () => {
+describe('Create Game Service', () => {
   beforeAll(() => {
     gameInMemoryRepository = new GameInMemoryRepository()
     createGameService = new CreateGameService(gameInMemoryRepository)

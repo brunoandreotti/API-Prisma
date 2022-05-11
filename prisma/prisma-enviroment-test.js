@@ -3,6 +3,9 @@ const { randomUUID } = require('crypto')
 const { execSync } = require('child_process')
 const { resolve } = require('path')
 
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database(resolve(__dirname, 'testDatabase', 'test.db'));
+
 require('dotenv').config({
   path: resolve(__dirname, '..', '.env.test')
 })
@@ -29,9 +32,10 @@ class CustomEnvironment extends NodeEnvironment {
   }
 
   teardown() {
-    const tearDownCommand = `${prismaCli} migrate reset --schema ./prisma/testDatabase/schema.prisma -f`
-
-    execSync(tearDownCommand)
+    db.serialize(() => {
+      db.run(`DELETE FROM games`)
+    })
+    
   }
 }
 

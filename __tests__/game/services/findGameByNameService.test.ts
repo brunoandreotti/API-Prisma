@@ -5,7 +5,7 @@ import { FindGameByNameService } from '../../../src/services/game/findGameByName
 let findGameByNameService: FindGameByNameService
 let gameInMemoryRepository: GameInMemoryRepository
 
-describe('Find game by name', () => {
+describe('Find game by name Service', () => {
   beforeAll(() => {
     gameInMemoryRepository = new GameInMemoryRepository()
     findGameByNameService = new FindGameByNameService(gameInMemoryRepository)
