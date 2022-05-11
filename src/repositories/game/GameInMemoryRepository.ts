@@ -1,8 +1,9 @@
+import { Games } from '@prisma/client'
 import { randomUUID } from 'crypto'
 import { GameData, GameSave, IGameRepository } from './IGameRepository'
 
 class GameInMemoryRepository implements IGameRepository {
-  games: any[] = []
+  games: any = []
 
   async create(data: GameData): Promise<GameSave> {
     const id = randomUUID()
@@ -17,7 +18,12 @@ class GameInMemoryRepository implements IGameRepository {
   }
 
   async findByName(name: string): Promise<GameSave | null> {
-    return this.games.find(game => game.name === name)
+    const game = this.games.find((game: any) => game.name === name)
+    return game
+  }
+
+  findAll(): Promise<GameSave[]> {
+      return this.games
   }
 }
 
