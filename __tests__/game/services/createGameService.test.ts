@@ -31,6 +31,44 @@ describe('Create Game', () => {
     }
     await createGameService.execute(game)
 
-    await expect(createGameService.execute(game)).rejects.toEqual(new Error('Game already exists!'))
+    await expect(createGameService.execute(game)).rejects.toEqual(
+      new Error('Game already exists!')
+    )
+  })
+
+  it('Should not be able to create a new game without name', async () => {
+    const game = {
+      name: '',
+      description: 'Descrição Teste',
+      developer: 'Desenvolvedor teste'
+    }
+
+    await expect(createGameService.execute(game)).rejects.toEqual(
+      new Error('Name is required required!')
+    )
+  })
+
+  it('Should not be able to create a new game without description', async () => {
+    const game = {
+      name: 'Teste',
+      description: '',
+      developer: 'Desenvolvedor teste'
+    }
+
+    await expect(createGameService.execute(game)).rejects.toEqual(
+      new Error('Description is required required!')
+    )
+  })
+
+  it('Should not be able to create a new game without developer', async () => {
+    const game = {
+      name: 'Teste',
+      description: 'Descrição teste',
+      developer: ''
+    }
+
+    await expect(createGameService.execute(game)).rejects.toEqual(
+      new Error('Developer is required required!')
+    )
   })
 })
