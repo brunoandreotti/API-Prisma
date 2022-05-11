@@ -22,7 +22,7 @@ class GamePrismaRepository implements IGameRepository {
         name
       }
     })
-
+    
     return game
   }
 }

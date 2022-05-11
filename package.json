@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only ./src/app.ts",
-    "test": "jest"
+    "pretest": "dotenv -e .env.test -- npx prisma migrate dev --schema ./prisma/testDatabase/schema.prisma --name db-test-init",
+    "test": "dotenv -e .env.test jest -i",
+    "test:service": "jest",
+    "posttest": "dotenv -e .env.test -- npx prisma migrate reset --schema ./prisma/testDatabase/schema.prisma -f"
   },
   "repository": {
     "type": "git",
