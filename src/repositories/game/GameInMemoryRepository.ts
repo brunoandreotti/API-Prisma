@@ -25,6 +25,29 @@ class GameInMemoryRepository implements IGameRepository {
   findAll(): Promise<GameSave[]> {
       return this.games
   }
+
+  update(data: GameSave): Promise<GameSave> {
+      this.games.map((game: any) => {
+        if(game.name === data.name) {
+          if(data.name) {
+            game.name = data.name
+          }
+
+          if(data.description) {
+            game.description = data.description
+          }
+
+          if(data.developer) {
+            game.developer = data.developer
+          }
+        }
+      })
+
+      const game = this.games.find((game: any) => game.name === data.name)
+
+      return game
+      
+  }
 }
 
 export { GameInMemoryRepository }

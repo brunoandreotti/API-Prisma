@@ -31,6 +31,19 @@ class GamePrismaRepository implements IGameRepository {
 
     return games
   }
+
+  async update(data: GameSave): Promise<GameSave> {
+      const uploadedGame = await prisma.games.update({
+        where: {id: data.id},
+        data: {
+          name: data.name,
+          description: data.description,
+          developer: data.developer
+        }
+      })
+
+      return uploadedGame
+  }
 }
 
 export { GamePrismaRepository }
