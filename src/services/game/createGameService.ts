@@ -1,9 +1,13 @@
-import { GameData, IGameRepository } from '../repositories/game/IGameRepository'
+import { GameData, IGameRepository } from '../../repositories/game/IGameRepository'
 
 class CreateGameService {
   constructor(private gameRepository: IGameRepository) {}
 
   async execute(data: GameData) {
+    //Verifica se todos os campos foram preenchidos
+    if(!data.name || !data.description || !data.developer){
+      throw new Error('All fields are required!')
+    }
     //Verifica se o jogo já existe
     const gameAlreadyExists = await this.gameRepository.findByName(data.name)
 
