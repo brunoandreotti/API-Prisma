@@ -1,6 +1,7 @@
 import express from 'express'
 //Routers
 
+
 import { gamesRouter } from './routes/games/gamesRoutes'
 
 const app = express()
@@ -13,4 +14,8 @@ app.use(express.json())
 app.use('/game', gamesRouter)
 
 
+
+
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`))
+
+export { app }
