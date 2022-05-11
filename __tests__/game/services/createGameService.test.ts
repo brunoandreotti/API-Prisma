@@ -46,7 +46,7 @@ describe('Create Game Service', () => {
     }
 
     await expect(createGameService.execute(game)).rejects.toEqual(
-      new Error('Name is required required!')
+      new Error('Name is required!')
     )
   })
 
@@ -58,7 +58,7 @@ describe('Create Game Service', () => {
     }
 
     await expect(createGameService.execute(game)).rejects.toEqual(
-      new Error('Description is required required!')
+      new Error('Description is required!')
     )
   })
 
@@ -70,7 +70,7 @@ describe('Create Game Service', () => {
     }
 
     await expect(createGameService.execute(game)).rejects.toEqual(
-      new Error('Developer is required required!')
+      new Error('Developer is required!')
     )
   })
 })
