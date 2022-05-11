@@ -16,7 +16,7 @@ class CustomEnvironment extends NodeEnvironment {
   constructor(config) {
     super(config)
 
-    this.schema = `dev.db`
+    this.schema = `test.db`
     this.connectionString = `${process.env.DATABASE_URL}${this.schema}`
   }
 

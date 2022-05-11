@@ -1,5 +1,11 @@
+/**
+ * @jest-environment ./prisma/prisma-enviroment-test.js
+ */
+
 import request from 'supertest'
 import { app } from '../../../src/app'
+// const sqlite3 = require('sqlite3').verbose();
+// const db = new sqlite3.Database(resolve(__dirname, '..', '..', '..', 'prisma', 'testDatabase', 'test.db'));
 
 describe('Create Game Controller', () => {
   it('Should be able to create a new game', async () => {
@@ -23,7 +29,6 @@ describe('Create Game Controller', () => {
 
     expect(response.statusCode).toBe(400)
     expect(response.body.error).toBe('Name is required!')
-    
   })
 
   it('Should not be able to create a new game without description', async () => {
@@ -35,7 +40,6 @@ describe('Create Game Controller', () => {
 
     expect(response.statusCode).toBe(400)
     expect(response.body.error).toBe('Description is required!')
-    
   })
 
   it('Should not be able to create a new game without developer', async () => {
@@ -47,7 +51,6 @@ describe('Create Game Controller', () => {
 
     expect(response.statusCode).toBe(400)
     expect(response.body.error).toBe('Developer is required!')
-    
   })
 
   it('Should not be able to create an existing game', async () => {
@@ -65,6 +68,5 @@ describe('Create Game Controller', () => {
 
     expect(response.statusCode).toBe(400)
     expect(response.body.error).toBe('Game already exists!')
-    
   })
 })

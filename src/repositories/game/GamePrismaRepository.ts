@@ -25,6 +25,12 @@ class GamePrismaRepository implements IGameRepository {
     
     return game
   }
+
+  async findAll(): Promise<GameSave[]> {
+    const games = await prisma.games.findMany()
+
+    return games
+  }
 }
 
 export { GamePrismaRepository }

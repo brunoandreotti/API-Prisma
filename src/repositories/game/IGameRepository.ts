@@ -16,4 +16,5 @@ export type GameSave = {
 export interface IGameRepository {
   create(data: GameData): Promise<GameSave>
   findByName(name: string): Promise<GameSave | null>
+  findAll(): Promise<GameSave[]>
 }
