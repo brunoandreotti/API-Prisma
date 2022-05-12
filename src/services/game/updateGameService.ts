@@ -9,8 +9,8 @@ class UpdateGameService {
 
   async execute(name: string, data: GameData) {
     //Retira o '-' do nome
-
-    const nameWithoutHyphen = await HandleNameService.execute(name)
+    const nameWithoutHyphen =  HandleNameService.execute(name)
+    
     //Verifica se o jogo já existe
     const game = await this.gameRepository.findByName(nameWithoutHyphen)
 
