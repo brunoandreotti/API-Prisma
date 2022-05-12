@@ -11,10 +11,10 @@ class FindGameByNameController {
     const { name } = req.params
 
     //Retira '-' do nome
-    const newName = HandleNameService.execute(name)
+    const nameWithoutHyphen = HandleNameService.execute(name)
 
     try {
-      const result = await findGameByNameService.execute(newName)
+      const result = await findGameByNameService.execute(nameWithoutHyphen)
       res.status(200).json({ result })
     } catch (error: any) {
       res.status(400).json({ error: error.message })

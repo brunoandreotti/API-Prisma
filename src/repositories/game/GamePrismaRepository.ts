@@ -22,7 +22,7 @@ class GamePrismaRepository implements IGameRepository {
         name
       }
     })
-    
+
     return game
   }
 
@@ -33,16 +33,24 @@ class GamePrismaRepository implements IGameRepository {
   }
 
   async update(data: GameSave): Promise<GameSave> {
-      const uploadedGame = await prisma.games.update({
-        where: {id: data.id},
-        data: {
-          name: data.name,
-          description: data.description,
-          developer: data.developer
-        }
-      })
+    const uploadedGame = await prisma.games.update({
+      where: { id: data.id },
+      data: {
+        name: data.name,
+        description: data.description,
+        developer: data.developer
+      }
+    })
 
-      return uploadedGame
+    return uploadedGame
+  }
+
+  async delete(name: string): Promise<GameSave> {
+    const deletedGame = await prisma.games.delete({
+      where: { name }
+    })
+
+    return deletedGame
   }
 }
 

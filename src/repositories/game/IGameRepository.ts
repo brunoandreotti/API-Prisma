@@ -18,4 +18,5 @@ export interface IGameRepository {
   findByName(name: string): Promise<GameSave | null>
   findAll(): Promise<GameSave[]>
   update(data: GameSave): Promise<GameSave>
+  delete(name: string): Promise<GameSave>
 }

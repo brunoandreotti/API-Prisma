@@ -1,4 +1,3 @@
-import { Games } from '@prisma/client'
 import { randomUUID } from 'crypto'
 import { GameData, GameSave, IGameRepository } from './IGameRepository'
 
@@ -22,31 +21,42 @@ class GameInMemoryRepository implements IGameRepository {
     return game
   }
 
-  findAll(): Promise<GameSave[]> {
-      return this.games
+  async findAll(): Promise<GameSave[]> {
+    return this.games
   }
 
-  update(data: GameSave): Promise<GameSave> {
-      this.games.map((game: any) => {
-        if(game.name === data.name) {
-          if(data.name) {
-            game.name = data.name
-          }
-
-          if(data.description) {
-            game.description = data.description
-          }
-
-          if(data.developer) {
-            game.developer = data.developer
-          }
+  async update(data: GameSave): Promise<GameSave> {
+    this.games.map((game: any) => {
+      if (game.id === data.id) {
+        if (data.name) {
+          game.name = data.name
         }
-      })
 
-      const game = this.games.find((game: any) => game.name === data.name)
+        if (data.description) {
+          game.description = data.description
+        }
 
-      return game
-      
+        if (data.developer) {
+          game.developer = data.developer
+        }
+      }
+    })
+
+    const game = this.games.find((game: any) => game.name === data.name)
+
+    return game
+  }
+
+  async delete(name: string): Promise<GameSave> {
+    const gameIndex = this.games.filter((game: GameData, index: number) => {
+      if (game.name === name) {
+        return index
+      }
+    })
+
+    const deletedGame = this.games.splice(gameIndex, 1)
+
+    return deletedGame
   }
 }
 
