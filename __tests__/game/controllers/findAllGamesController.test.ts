@@ -25,7 +25,7 @@ describe('Find all games Controller', () => {
 
     const response = await request(app).get('/games/')
 
-    console.log(response.body.result.length)
+    
 
     expect(response.statusCode).toBe(200)
     expect(response.body).toHaveProperty('result')
