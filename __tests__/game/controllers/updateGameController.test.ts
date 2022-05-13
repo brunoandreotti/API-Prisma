@@ -28,9 +28,6 @@ describe('Update game Controller', () => {
 
     expect(response.statusCode).toBe(200)
     expect(response.body.message).toBe('Game updated successfully!')
-    expect(response.body.result.name).toBe(updatedData.name)
-    expect(response.body.result.description).toBe(updatedData.description)
-    expect(response.body.result.developer).toBe(updatedData.developer)
   })
 
   it('Should not be able to update a nonexisting game', async () => {

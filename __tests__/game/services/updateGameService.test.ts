@@ -35,22 +35,14 @@ describe('Update game Service', () => {
   })
 
   it('Should not be able to update a nonexisting game', async () => {
-    const game: GameData = {
-      name: 'Nome Update 2',
-      description: 'Descrição Teste',
-      developer: 'Desenvolvedor teste'
-    }
-
     const updatedData: GameData = {
       name: 'Nome Update Atualizado',
       description: 'Descrição Teste',
       developer: 'Desenvolvedor teste'
     }
 
-    await gameInMemoryRepository.create(game)
-
-    
-
-    await expect(updateGameService.execute('Nome não existente', updatedData)).rejects.toThrow(new Error('Game not found!'))
+    await expect(
+      updateGameService.execute('Nome não existente', updatedData)
+    ).rejects.toThrow(new Error('Game not found!'))
   })
 })

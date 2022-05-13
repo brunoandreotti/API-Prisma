@@ -1,6 +1,7 @@
 import { Router } from 'express'
 //Controllers
 import { CreateGameController } from '../../controllers/game/createGameController'
+import { DeleteGameController } from '../../controllers/game/deleteGameController'
 import { FindAllGamesController } from '../../controllers/game/findAllGamesController'
 import { FindGameByNameController } from '../../controllers/game/findGameByNameController'
 import { UpdateGameController } from '../../controllers/game/updateGameController'
@@ -19,5 +20,8 @@ gamesRouter.get('/', FindAllGamesController.findAll)
 
 //Rota deve atualizar um jogo baseado no nome
 gamesRouter.patch('/update/:name', UpdateGameController.update )
+
+//Rota deve deletar um jogo baseado no nome
+gamesRouter.delete('/:name', DeleteGameController.delete)
 
 export { gamesRouter }

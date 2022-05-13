@@ -56,7 +56,14 @@ class GameInMemoryRepository implements IGameRepository {
 
     const deletedGame = this.games.splice(gameIndex, 1)
 
-    return deletedGame
+    const deletedGameObject = {
+      id: deletedGame[0].id,
+      name: deletedGame[0].name,
+      description: deletedGame[0].description,
+      developer: deletedGame[0].developer,
+    }
+  
+    return deletedGameObject
   }
 }
 
