@@ -1,6 +1,6 @@
 import { Comments } from '@prisma/client'
 import { prisma } from '../../database/client'
-import { CommentData, CommentSave, CommentUploadData, ICommentRepository } from './ICommentRepository'
+import { CommentData, CommentUploadData, ICommentRepository } from './ICommentRepository'
 
 class CommentPrismaRepository implements ICommentRepository {
   
@@ -33,7 +33,7 @@ class CommentPrismaRepository implements ICommentRepository {
     return comment
   }
 
-  async update(data: CommentUploadData): Promise<CommentSave> {
+  async update(data: CommentUploadData): Promise<Comments> {
     const updatedComment = await prisma.comments.update({
       where: {
         id: data.id

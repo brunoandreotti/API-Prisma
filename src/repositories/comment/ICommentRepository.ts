@@ -23,6 +23,6 @@ import { Comments } from "@prisma/client";
 export interface ICommentRepository {
   create(gameName: string, data: CommentData): Promise<Comments>
   findById(id: string): Promise<Comments| null>
-  update(data: CommentUploadData): Promise<CommentSave>
+  update(data: CommentUploadData): Promise<Comments>
   delete(id: string): Promise<Comments>
 }
