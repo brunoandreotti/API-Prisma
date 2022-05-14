@@ -36,7 +36,17 @@ class GamePrismaRepository implements IGameRepository {
   }
 
   async findAll(): Promise<GameSave[]> {
-    const games = await prisma.games.findMany()
+    const games = await prisma.games.findMany({
+      include: {
+        comments: {
+          select: {
+            id: true,
+            text: true,
+            game_score: true
+          }
+        }
+      }
+    })
 
     return games
   }
