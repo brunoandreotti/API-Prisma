@@ -6,17 +6,17 @@ class GameInMemoryRepository implements IGameRepository {
 
   async create(data: GameData): Promise<GameSave> {
     const id = randomUUID()
-    const product: GameSave = {
+    const game: GameSave = {
       ...data,
       id
     }
 
-    this.games.push(product)
+    this.games.push(game)
 
-    return product
+    return game
   }
 
-  async findByName(name: string): Promise<GameSave | null> {
+  async findByName(name: string): Promise<GameSave> {
     const game = this.games.find((game: any) => game.name === name)
     return game
   }

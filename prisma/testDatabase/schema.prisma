@@ -7,13 +7,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Games {
   id String @id @default(uuid())
 
-  name String @unique
+  name        String     @unique
   description String
-  developer String
+  developer   String
+  comments    Comments[]
 
   @@map("games")
+}
+
+model Comments {
+  id String @id @default(uuid())
+
+  text       String
+  game_score Int
+
+  game    Games?  @relation(fields: [gamesId], references: [id])
+  gamesId String?
+  @@map("comments")
 }
