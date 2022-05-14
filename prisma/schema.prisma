@@ -25,6 +25,6 @@ model Comments {
   game_score Int
 
   @@map("comments")
-  Games   Games?  @relation(fields: [gamesId], references: [id])
-  gamesId String?
+  game   Games?  @relation(fields: [gameId], references: [id])
+  gameId String?
 }

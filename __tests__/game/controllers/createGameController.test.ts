@@ -4,8 +4,7 @@
 
 import request from 'supertest'
 import { app } from '../../../src/app'
-// const sqlite3 = require('sqlite3').verbose();
-// const db = new sqlite3.Database(resolve(__dirname, '..', '..', '..', 'prisma', 'testDatabase', 'test.db'));
+
 
 describe('Create Game Controller', () => {
   it('Should be able to create a new game', async () => {

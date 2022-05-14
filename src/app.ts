@@ -1,6 +1,6 @@
 import express from 'express'
 //Routers
-import { gamesRouter } from './routes/games/gamesRoutes'
+import { gamesRouter } from './routes/gamesRoutes'
 
 import 'dotenv/config'
 
