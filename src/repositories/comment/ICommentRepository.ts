@@ -4,6 +4,12 @@ export type CommentData = {
   game_score: number
 }
 
+export type CommentUploadData = {
+  id: string
+  text: string
+  game_score: number
+}
+
 //tipagem do dado que será criado no banco de dados
 export type CommentSave = {
   id: string;
@@ -17,5 +23,6 @@ import { Comments } from "@prisma/client";
 export interface ICommentRepository {
   create(gameName: string, data: CommentData): Promise<Comments>
   findById(id: string): Promise<Comments| null>
+  update(data: CommentUploadData): Promise<CommentSave>
   delete(id: string): Promise<Comments>
 }
