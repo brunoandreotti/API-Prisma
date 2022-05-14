@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { CreateCommentController } from '../controllers/comment/createCommentController'
+import { DeleteCommentController } from '../controllers/comment/deleteCommentController'
 //Controllers
 import { CreateGameController } from '../controllers/game/createGameController'
 import { DeleteGameController } from '../controllers/game/deleteGameController'
@@ -30,5 +31,6 @@ gamesRouter.delete('/:name', DeleteGameController.delete)
 // => Comments
 
 gamesRouter.post('/:name/comment/create', CreateCommentController.create)
+gamesRouter.delete('/comment/:id', DeleteCommentController.delete)
 
 export { gamesRouter }

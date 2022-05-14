@@ -12,6 +12,10 @@ export type CommentSave = {
   gameId: string | null;
 }
 
+import { Comments } from "@prisma/client";
+
 export interface ICommentRepository {
-  create(gameName: string, data: CommentData): Promise<CommentSave>
+  create(gameName: string, data: CommentData): Promise<Comments>
+  findById(id: string): Promise<Comments| null>
+  delete(id: string): Promise<Comments>
 }
