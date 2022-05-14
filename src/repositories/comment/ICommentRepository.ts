@@ -9,7 +9,7 @@ export type CommentSave = {
   id: string;
   text: string;
   game_score: number;
-  gamesId: string | null;
+  gameId: string | null;
 }
 
 export interface ICommentRepository {

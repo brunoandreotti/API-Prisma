@@ -4,6 +4,7 @@ import {
   CommentSave,
   ICommentRepository
 } from './ICommentRepository'
+import { Comments } from '@prisma/client'
 
 class CommentPrismaRepository implements ICommentRepository {
   async create(
@@ -19,9 +20,6 @@ class CommentPrismaRepository implements ICommentRepository {
             name: gameName
           }
         }
-      },
-      include: {
-        game: true
       }
     })
 

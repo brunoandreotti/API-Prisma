@@ -20,6 +20,15 @@ class GamePrismaRepository implements IGameRepository {
     const game = await prisma.games.findUnique({
       where: {
         name
+      },
+      include: {
+        comments: {
+          select: {
+            id: true,
+            text: true,
+            game_score: true
+          }
+        }
       }
     })
 
