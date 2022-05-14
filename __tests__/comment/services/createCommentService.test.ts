@@ -5,7 +5,7 @@
 import { prisma } from '../../../src/database/client'
 import { CommentPrismaRepository } from '../../../src/repositories/comment/CommentPrismaRepository'
 import { CommentData } from '../../../src/repositories/comment/ICommentRepository'
-import { CreateCommentService } from '../../../src/services/comment/createGameService'
+import { CreateCommentService } from '../../../src/services/comment/createCommentService'
 
 let createCommentService: CreateCommentService
 let commentRepository: CommentPrismaRepository

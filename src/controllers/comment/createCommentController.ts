@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { CommentPrismaRepository } from '../../repositories/comment/CommentPrismaRepository'
 import { CommentData } from '../../repositories/comment/ICommentRepository'
-import { CreateCommentService } from '../../services/comment/createGameService'
+import { CreateCommentService } from '../../services/comment/createCommentService'
 import { HandleNameService } from '../../services/utils/handleNameService'
 
 class CreateCommentController {
