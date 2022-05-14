@@ -1,7 +1,8 @@
 import { Router } from 'express'
+//Controllers
 import { CreateCommentController } from '../controllers/comment/createCommentController'
 import { DeleteCommentController } from '../controllers/comment/deleteCommentController'
-//Controllers
+import { UpdateCommentController } from '../controllers/comment/updateCommentController'
 import { CreateGameController } from '../controllers/game/createGameController'
 import { DeleteGameController } from '../controllers/game/deleteGameController'
 import { FindAllGamesController } from '../controllers/game/findAllGamesController'
@@ -32,5 +33,6 @@ gamesRouter.delete('/:name', DeleteGameController.delete)
 
 gamesRouter.post('/:name/comment/create', CreateCommentController.create)
 gamesRouter.delete('/comment/:id', DeleteCommentController.delete)
+gamesRouter.patch('/comment/:id', UpdateCommentController.update)
 
 export { gamesRouter }

@@ -18,12 +18,12 @@ class UpdateGameService {
       throw new Error('Game not found!')
     }
 
-    const updatedDate = {
+    const updatedData = {
       id: game.id,
       ...data
     }
 
-    const updatedGame = await this.gameRepository.update(updatedDate)
+    const updatedGame = await this.gameRepository.update(updatedData)
 
     return updatedGame
   }

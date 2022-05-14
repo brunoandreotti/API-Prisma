@@ -1,10 +1,6 @@
-import { prisma } from '../../database/client'
-import {
-  CommentData,
-  CommentSave,
-  ICommentRepository
-} from './ICommentRepository'
 import { Comments } from '@prisma/client'
+import { prisma } from '../../database/client'
+import { CommentData, CommentSave, CommentUploadData, ICommentRepository } from './ICommentRepository'
 
 class CommentPrismaRepository implements ICommentRepository {
   
@@ -37,18 +33,31 @@ class CommentPrismaRepository implements ICommentRepository {
     return comment
   }
 
-  
+  async update(data: CommentUploadData): Promise<CommentSave> {
+    const updatedComment = await prisma.comments.update({
+      where: {
+        id: data.id
+      },
+      data: {
+        text: data.text,
+        game_score: data.game_score
+      }
+    })
+
+    return updatedComment
+  }
 
   async delete(id: string): Promise<Comments> {
-    const comment = await prisma.comments.delete({
+    const deletedComment = await prisma.comments.delete({
       where: {
         id
       }
     })
 
-    return comment
+    return deletedComment
   }
 
+  
 }
 
 export { CommentPrismaRepository }
