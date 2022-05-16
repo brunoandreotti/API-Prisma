@@ -1,8 +1,14 @@
 import express from 'express'
+//Routers
+import { gamesRouter } from './routes/gamesRoutes'
+
+import 'dotenv/config'
 
 const app = express()
-const PORT = 3000
 
 app.use(express.json())
 
-app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`))
+//Rotas
+app.use('/games', gamesRouter)
+
+export { app }

@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -24,7 +24,7 @@ model Comments {
   text       String
   game_score Int
 
+  game    Games?  @relation(fields: [gamesId], references: [id])
+  gamesId String?
   @@map("comments")
-  game   Games?  @relation(fields: [gameId], references: [id], onDelete: Cascade)
-  gameId String?
 }
