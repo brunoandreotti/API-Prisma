@@ -31,8 +31,13 @@ gamesRouter.delete('/:name', DeleteGameController.delete)
 
 // => Comments
 
+//Rota deve criar um comentário em um jogo já existente
 gamesRouter.post('/:name/comment/create', CreateCommentController.create)
-gamesRouter.delete('/comment/:id', DeleteCommentController.delete)
+
+//A rota deve atualizar um comentário baseado no id
 gamesRouter.patch('/comment/:id', UpdateCommentController.update)
+
+//A rota deve atualizar um comentário baseado no Id
+gamesRouter.delete('/comment/:id', DeleteCommentController.delete)
 
 export { gamesRouter }
