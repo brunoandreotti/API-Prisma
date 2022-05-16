@@ -19,13 +19,13 @@
   </p>
 </p>
 
-✨ # Sobre
+# Sobre
 
 O objetivo do projeto foi criar uma API de cadastro de jogos e comentários utilizando TypeScript, Node, Express, Prisma ORM, mySQL e Jest.
 
 Nesta aplicação é possível cadastrar, listar, atualizar e deletar jogos e comentários.
 
-🧪 # Conhecimentos Praticados
+# Conhecimentos Praticados
 
 ✔ TypeScript <br>
 ✔ NodeJs <br>
@@ -36,9 +36,9 @@ Nesta aplicação é possível cadastrar, listar, atualizar e deletar jogos e co
 ✔ Jest e Supertest <br>
 ✔ Testes Unitários e Teste de Integração
 
-🚦 # Rotas da aplicação:
+# Rotas da aplicação:
 
-## 🎮 Jogos
+## Jogos
 
 <b>[GET] </b> /games - A rota deve exibir todos os jogos cadastrados.<br>
 
@@ -66,7 +66,7 @@ Nesta aplicação é possível cadastrar, listar, atualizar e deletar jogos e co
 
 <b>[DELETE] </b> /games/:name - A rota deve deletar um cliente baseado em seu ID.<br>
 
-## 📄 Comentários
+## Comentários
 
 <b>[POST] </b> /games/:name/comment/create - A rota deve cadastrar um comentário em um jogo com as informações passadas no body da requisição.<br>
 
@@ -88,7 +88,7 @@ Nesta aplicação é possível cadastrar, listar, atualizar e deletar jogos e co
 
 <b>[DELETE] </b> /games/comment/:id - A rota deve deletar um comentário baseado em seu ID.<br>
 
-# ⚠ Dependências:
+# Dependências:
 
 ```javascript
 "devDependencies": {
@@ -112,7 +112,7 @@ Nesta aplicação é possível cadastrar, listar, atualizar e deletar jogos e co
   }
 ```
 
-💻 # Tecnologias utilizadas:
+# Tecnologias utilizadas:
 
 <p align="center">
 <a href="https://www.typescriptlang.org"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="40" width="40" alt="typecript"/><a href="https://nodejs.org/en/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="40" width="40" /></a> <a href="https://expressjs.com/pt-br/"><img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" height="40" width="40" /></a> <a href="https://insomnia.rest/download"><img src="https://raw.githubusercontent.com/brunoandreotti/biblioteca-backend/79c23c6a4bdd0bc6cb95463ee47741f2226cb0b1/readme/insomnia.svg" height="40" width="40" /></a> <a href="https://www.prisma.io"><img src="https://cdn.worldvectorlogo.com/logos/prisma-2.svg" height="40" width="40" /></a> <a href="https://www.mysql.com"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" height="40" width="40" /></a> <a href="https://jestjs.io/pt-BR/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" height="40" width="40" /></a>
